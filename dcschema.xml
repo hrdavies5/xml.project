@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+    xmlns:dc="http://dublincore.org/schemas/xmls/qdc/dc.xsd" 
+    xmlns:dcterms="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd" 
+    targetNamespace="http://dublincore.org/schemas/xmls/qdc/dc.xsd">
+    
+    <xs:annotation>
+        <xs:documentation><annotation>
+            <documentation>
+                Adapted for Qualified Dublin Core by Niamh McGuigan and Helen Davies based on XML Schema 2008-02-11.
+                Schema imports the Dublin Core and dcterms elements from the DCMI schemas for qualified Dublin Core and dcterms respectively.
+            </documentation>
+        </annotation>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:import namespace="http://purl.org/dc/terms/"
+        schemaLocation="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+    <xs:import namespace="http://purl.org/dc/elements/1.1/"
+        schemaLocation="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+    <xs:element name="identifier" type="xs:string"/>
+    <xs:element name="title" type="xs:string"/>
+    <xs:element name="date" type="xs:date"/>
+    <xs:element name="creator" type="xs:string"/>
+    <xs:element name="description" type="xs:string"/>
+    <xs:element name="publisher" type="xs:string"/>
+    <xs:element name="relation.isPartOf" type="xs:string"/>
+    <xs:element name="dcterms.bibliographicCitation" type="xs:string"/>
+    <xs:element name="type" type="xs:string"/>
+    <xs:element name="relation.isVersionOf" type="xs:string"/>
+    <xs:element name="contributor.editor" type="xs:string"/>
+    <xs:element name="contributor.translator" type="xs:string"/>
+    
+    <xs:element name="record">
+        <xs:complexType>
+            <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="dc:identifier"/>
+                <xs:element ref="dc:title"/>
+                <xs:element ref="dc:date"/>
+                <xs:element ref="dc:creator"/>
+                <xs:element ref="dc:contributor.editor"/>
+                <xs:element ref="dc:contributor.translator"/>
+                <xs:element ref="dc:description"/>
+                <xs:element ref="dc:publisher"/>
+                <xs:element ref="dc:relation.isPartOf"/>
+                <xs:element ref="dcterms:bibliographicCitation"/>
+                <xs:element ref="dc:type"/>
+                <xs:element ref="dc:relation.isVersionOf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
